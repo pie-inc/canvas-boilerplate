@@ -4,6 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 export default {
+  mode: 'production',
   entry: [
     './src/main.js'
   ],
@@ -39,7 +40,6 @@ export default {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
     new ExtractTextPlugin('style.min.css'),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.min\.css$/g,
