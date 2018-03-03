@@ -1,2 +1,2 @@
-# canvas-boiletplate
+# canvas-boilerplate
 Simple canvas playground boilerplate
