@@ -6,34 +6,60 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev:open && npm run dev:webpack",
-    "dev:webpack": "./node_modules/webpack/bin/webpack.js",
-    "dev:open": "open ./build/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --hot --inline",
+    "build": "webpack --mode production",
+    "test": "jest"
   },
   "keywords": [
-    "skifree",
+    "webpack",
     "js",
     "canvas"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "css-loader": "^0.28.7",
+    "@babel/core": "^7.0.0-rc.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-rc.0",
+    "@babel/plugin-transform-spread": "^7.0.0-rc.0",
+    "@babel/preset-env": "^7.0.0-rc.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.4",
+    "clipboardy": "^1.2.3",
+    "css-loader": "^0.28.11",
     "css-mqpacker": "^6.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.8",
-    "rxjs": "^5.5.5",
+    "postcss-color-function": "^4.0.1",
+    "postcss-custom-media": "^7.0.7",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.6",
+    "postcss-preset-env": "^6.5.0",
+    "preact": "^8.3.0",
     "style-loader": "^0.19.0",
-    "webpack": "^4.0.1"
+    "terser-webpack-plugin": "^1.2.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14",
+    "webpackbar": "^3.1.4"
   },
   "babel": {
     "presets": [
-      "env"
+      [
+        "@babel/preset-env",
+        {
+          "shippedProposals": true
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-transform-spread",
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "pragma": "h"
+        }
+      ]
     ]
   },
   "postCSS": {
@@ -52,5 +78,8 @@
       },
       "cssnano": {}
     }
+  },
+  "jest": {
+    "testURL": "file:/"
   }
 }

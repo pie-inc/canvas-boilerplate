@@ -1,6 +1,3 @@
-import {Observable, Subject} from "rxjs/Observable";
-import 'rxjs/add/observable/fromEvent';
-
 export default class Game {
   constructor(canvas) {
     this.canvas = canvas;
